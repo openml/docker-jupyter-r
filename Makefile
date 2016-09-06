@@ -1,11 +1,12 @@
 VERSION=0.1
+IMAGE=openml/jupyter-r
 
 build:
-	docker build --tag openml/r-base:dev .
+	docker build --tag ${IMAGE}:dev .
 
 tag:
-	docker tag openml/r-base:dev openml/r-base:latest
+	docker tag ${IMAGE}:dev ${IMAGE}:latest
 
 push:
-	docker push openml/r-base:$(VERSION)
-	docker push openml/r-base:latest
+	docker push ${IMAGE}:$(VERSION)
+	docker push ${IMAGE}:latest
