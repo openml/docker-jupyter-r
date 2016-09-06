@@ -1,0 +1,25 @@
+machine:
+  pre:
+    - sudo curl -L -o /usr/bin/docker 'https://s3-external-1.amazonaws.com/circle-downloads/docker-1.9.1-circleci'
+    - sudo chmod 0755 /usr/bin/docker
+  services:
+    - docker
+
+dependencies:
+  override:
+    # building docker
+    - make build
+    - make tag
+    - docker images
+
+test:
+  override:
+    # running docker in background
+    - mkdir -p /home/ubuntu/rep/notebooks
+    - docker run -d -p 8888:8888 -v /home/ubuntu/rep/notebooks:/notebooks \
+      openml/r-base:dev ; sleep 20
+    - curl --retry 10 --retry-delay 5 -v http://localhost:8888
+    - wget http://localhost:8888 -O output.html
+    - cat output.html
+    # check that word ipython or jupyter is met on the page
+    - grep -q "ipython\|jupyter" output.html

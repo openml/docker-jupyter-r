@@ -1,0 +1,8 @@
+[I 11:49:40.557 NotebookApp] Writing notebook server cookie secret to /home/jovyan/.local/share/jupyter/runtime/notebook_cookie_secret
+[W 11:49:40.607 NotebookApp] Widgets are unavailable. Please install widgetsnbextension or ipywidgets 4.0
+[W 11:49:40.619 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[W 11:49:40.620 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using authentication. This is highly insecure and not recommended.
+[I 11:49:40.644 NotebookApp] Serving notebooks from local directory: /notebooks
+[I 11:49:40.644 NotebookApp] 0 active kernels 
+[I 11:49:40.649 NotebookApp] The Jupyter Notebook is running at: http://[all ip addresses on your system]:8888/
+[I 11:49:40.649 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
