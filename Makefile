@@ -1,4 +1,4 @@
-VERSION=0.1
+VERSION=0.1.1
 IMAGE=openml/jupyter-r
 
 build:
@@ -6,6 +6,7 @@ build:
 
 tag:
 	docker tag ${IMAGE}:dev ${IMAGE}:latest
+	docker tag ${IMAGE}:latest ${IMAGE}:${VERSION}
 
 _login:
 	@if [ -n "${DUSER}" ] ; then \
@@ -13,6 +14,5 @@ _login:
 	fi \
 
 push: _login
-	docker tag ${IMAGE}:${VERSION} ${IMAGE}:latest
-	docker push ${IMAGE}:${VERSION}
 	docker push ${IMAGE}:latest
+	docker push ${IMAGE}:${VERSION}
