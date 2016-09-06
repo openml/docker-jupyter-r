@@ -7,6 +7,11 @@ build:
 tag:
 	docker tag ${IMAGE}:dev ${IMAGE}:latest
 
-push:
-	docker push ${IMAGE}:$(VERSION)
+login:
+	@if [ -n "${DUSER}" ] ; then \
+		docker login -u ${DUSER} -p ${DPASS} ; \
+	fi \
+
+push: login
+	docker push ${IMAGE}:${VERSION}
 	docker push ${IMAGE}:latest
