@@ -7,6 +7,5 @@ COPY install.r /tmp
 RUN Rscript /tmp/install.r
 
 COPY start_jupyter_or_everware.sh $HOME
-RUN chmod +x $HOME/start_jupyter_or_everware.sh
 
 CMD bash -c "$HOME/start_jupyter_or_everware.sh"
