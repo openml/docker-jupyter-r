@@ -9,3 +9,7 @@ RUN Rscript /tmp/install.r
 COPY start_jupyter_or_everware.sh $HOME
 
 CMD bash -c "$HOME/start_jupyter_or_everware.sh"
+
+USER root
+RUN mkdir -p /notebooks && chown jovyan /notebooks
+USER jovyan
