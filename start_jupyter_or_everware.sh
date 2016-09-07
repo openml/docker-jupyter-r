@@ -11,6 +11,8 @@ if [ "$INSTALL_PIP_MODULES" != "" ] ; then
 	pip install $INSTALL_PIP_MODULES
 fi
 
+echo "Image Version: `cat $HOME/version`"
+
 if [ "$JPY_API_TOKEN" != "" ] ; then
 	echo "Starting under Jupyterhub"
 

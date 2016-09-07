@@ -1,5 +1,10 @@
-VERSION=0.1.1
-IMAGE=openml/jupyter-r
+IMAGE:=openml/jupyter-r
+EMAIL=andrey.u@gmail.com
+
+include version
+
+help:
+	echo ${VERSION}
 
 build:
 	docker build --tag ${IMAGE}:dev .
@@ -10,8 +15,8 @@ tag:
 
 _login:
 	@if [ -n "${DUSER}" ] ; then \
-		docker login -u ${DUSER} -p ${DPASS} -e andrey.u@gmail.com; \
-	fi \
+		docker login -u ${DUSER} -p ${DPASS} -e ${EMAIL}; \
+	fi
 
 push: _login
 	docker push ${IMAGE}:latest
