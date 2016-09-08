@@ -2,6 +2,7 @@ FROM jupyter/r-notebook
 MAINTAINER "Andrey Ustyuzhanin" <anaderi@yandex-team.ru>
 
 RUN conda install -y r-cairo r-ggplot2 r-dplyr r-rpart
+RUN conda install -y -c damianavila82 rise
 
 COPY version install.r start_jupyter_or_everware.sh $HOME/
 RUN Rscript $HOME/install.r
