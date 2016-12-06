@@ -28,3 +28,5 @@ _is_published:
 push: _login _is_published
 	docker push ${IMAGE}:latest
 	docker push ${IMAGE}:${VERSION}
+
+# TODO: check that images with -dev should not go to registry
