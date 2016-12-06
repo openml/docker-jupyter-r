@@ -12,7 +12,7 @@ USER root
 RUN apt-get update
 RUN apt-get install -y xvfb pkg-config less jq
 RUN mkdir -p /notebooks && chown jovyan /notebooks
-RUN chown jovyan:jovyan $HOME/.Rprofile
+RUN chown jovyan $HOME/.Rprofile
 USER jovyan
 WORKDIR $HOME
 
