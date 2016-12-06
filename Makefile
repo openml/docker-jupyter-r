@@ -21,7 +21,8 @@ _login:
 _is_published:
 	if curl -s -S 'https://registry.hub.docker.com/v2/repositories/${IMAGE}/tags/' | \
 		jq '."results"[]["name"]' | \
-		grep -q ${VERSION} ; then \
+		tr -d \" |
+		grep -q "^${VERSION}\$" ; then \
 			echo "ERROR: version ${VERSION} of ${IMAGE} is already published." ; exit 1 ; \
 	fi
 
